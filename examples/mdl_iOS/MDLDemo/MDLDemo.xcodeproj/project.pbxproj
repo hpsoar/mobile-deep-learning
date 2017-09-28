@@ -258,7 +258,7 @@
 				TargetAttributes = {
 					FCF7A8BA1F66754800906055 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Z5M2UUN5YV;
+						DevelopmentTeam = BLJZCAU36U;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -450,11 +450,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Baidu Netcom Science & Technology Co.,Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z5M2UUN5YV;
+				DEVELOPMENT_TEAM = BLJZCAU36U;
 				INFOPLIST_FILE = MDLDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codeworm.caffe2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beacon.mdl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -471,12 +471,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Baidu Netcom Science & Technology Co.,Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z5M2UUN5YV;
+				DEVELOPMENT_TEAM = BLJZCAU36U;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = MDLDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codeworm.caffe2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beacon.mdl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

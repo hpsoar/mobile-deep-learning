@@ -48,6 +48,7 @@ namespace mdl {
         }
         _need_im2col = !((_kernel_size == 1) && (_pad == 0) && (_stride == 1));
         if (_need_im2col) {
+            // 一个filter一列
             _col_buffer = new Matrix();
             _col_buffer->resize({_weight[0]->count(1) * _group, _output[0]->dimension(2), _output[0]->dimension(3)});
             _col_buffer->reallocate();
@@ -98,6 +99,36 @@ namespace mdl {
         descript();
     }
 
+    void logxx(float *data_im, int ic, int iw, int ih, float *col_data, int kernel_size, int pad, int stride) {
+        int ow = (iw + 2 * pad - kernel_size) / stride + 1;
+        int oh = (iw + 2 * pad - kernel_size) / stride + 1;
+        
+        std::cout << "output data in\n";
+        for (int c = 0; c < ic; ++c) {
+            for (int h = 0; h < ih; ++h) {
+                for (int w = 0; w < iw; ++w) {
+                    std::cout << data_im[c * iw * ih + h * iw + w] << ", ";
+                }
+                std::cout << std::endl;
+            }
+            std::cout << std::endl;
+        }
+        
+        std::cout << "output im2col\n";
+        
+        int orows = kernel_size * kernel_size;
+        int ocols = ow * oh;
+        for (int c = 0; c < ic; ++c) {
+            for (int r = 0; r < orows; ++r) {
+                for (int co = 0; co < ocols; ++co) {
+                    std::cout << col_data[c * orows * ocols + r * ocols + co] << ", ";
+                }
+                std::cout << std::endl;
+            }
+            std::cout << std::endl;
+        }
+    }
+    
     void ConvolutionLayer::forward_gemm(float *input_data, float *weight_data, float *output_data, int thread_num) {
         int input_channel = _input[0]->dimension(1);
         int input_height = _input[0]->dimension(2);
@@ -107,7 +138,10 @@ namespace mdl {
         if (_need_im2col) {
             col_data = _col_buffer->get_data();
             im2col(input_data, input_channel, input_height, input_width, _kernel_size, _pad, _stride, col_data);
+            
+            // logxx(input_data, input_channel, input_height, input_width, col_data, _kernel_size, _pad, _stride);
         }
+        
         int m = _output[0]->dimension(1);
         int n = _output[0]->count(2);
         int k = _weight[0]->count(1);
